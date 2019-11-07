@@ -1,20 +1,19 @@
 // vue.config.js
 module.exports = {
-    // 基本路径
-    publicPath: process.env.NODE_ENV === 'production'
-    ? '/production-sub-path/'
-    : '/',
-     // 输出文件目录
+  // 基本路径
+  publicPath: process.env.NODE_ENV === 'production' ? '/public/' : './',
+  // 输出文件目录：在npm run build时，生成文件的目录名称 
   outputDir: 'dist', // 默认dist
   // 用于嵌套生成的静态资产（js,css,img,fonts）目录
-  // assetsDir: '',
+  assetsDir: "assets",
   // 指定生成的 index.html 的输出路径 (相对于 outputDir)。也可以是一个绝对路径
   indexPath: 'index.html', // Default: 'index.html'
+  // 默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存，你可以通过将这个选项设为 false 来关闭文件名哈希。(false的时候就是让原来的文件名不改变) 
   filenameHashing: true,
   // 构建多页时使用
   pages: undefined,
   // eslint-loader是否在保存的时候检查
-  lintOnSave: process.env.NODE_ENV !== 'production',
+  lintOnSave: false,
   // 是否使用包含运行时编译器的Vue核心的构建
   runtimeCompiler: false,
   // 默认情况下 babel-loader 会忽略所有 node_modules 中的文件。如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来
@@ -58,7 +57,17 @@ module.exports = {
     https: false,
     open: true,
     hotOnly: false,
-    proxy: null, // 设置代理
+    proxy: { // 设置代理
+      '/api': {
+        // 目标代理服务器地址
+        target: 'http://localhost:8888',
+        // 允许跨域 
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/mock'
+        }
+      }
+    },
     before: app => {},
   },
   // PWA 插件相关配置

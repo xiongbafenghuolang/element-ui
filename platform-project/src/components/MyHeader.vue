@@ -10,10 +10,11 @@
 </template>
 <script>
 export default {
-  name: "header",
+  name: "MyHeader",
   props: {
     msg: String,
     tableData: Array
   }
 };
 </script>
+

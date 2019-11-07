@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <Header :tableData="tableData" :msg="msg"></Header>
+    <MyHeader :tableData="tableData" :msg="msg" />
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
 
 <script>
-import Header from './components/header.vue'
+import MyHeader from './components/MyHeader'
 
 export default {
   name: 'app',
   components: {
-    Header
+    MyHeader
   },
   data() {
     return {
@@ -34,11 +34,18 @@ export default {
           address: '上海市普陀区金沙江路 1516 弄'
         }]
     }
+  },
+  created() {
+    console.log(this.$go);
+    this.$api.apiAddress()
+      .then(res => {
+        console.log(res)
+      })
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
