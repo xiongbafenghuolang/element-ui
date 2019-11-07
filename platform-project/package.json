@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "test": "vue-cli-service build --mode test",
+    "prev": "vue-cli-service build --mode prev",
+    "build": "vue-cli-service build --mode prod",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.3.2",
+    "element-ui": "^2.12.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
