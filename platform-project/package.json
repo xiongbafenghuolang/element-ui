@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "test": "vue-cli-service build --mode test",
-    "prev": "vue-cli-service build --mode prev",
+    "dev": "vue-cli-service build --mode dev",
     "build": "vue-cli-service build --mode prod",
     "lint": "vue-cli-service lint"
   },
@@ -25,6 +25,7 @@
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.23.3",
     "sass-loader": "^8.0.0",
+    "terser-webpack-plugin": "^2.2.1",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {

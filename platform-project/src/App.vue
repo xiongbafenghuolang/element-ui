@@ -27,6 +27,9 @@ export default {
            this.tableData = res.data.tableData;
          }
       })
+  },
+  mounted() {
+    
   }
 }
 </script>

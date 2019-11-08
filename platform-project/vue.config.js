@@ -3,7 +3,7 @@ module.exports = {
   // 基本路径
   publicPath: process.env.NODE_ENV === 'production' ? '/public/' : './',
   // 输出文件目录：在npm run build时，生成文件的目录名称 
-  outputDir: 'dist', // 默认dist
+  outputDir: process.env.outputDir, // 默认dist
   // 用于嵌套生成的静态资产（js,css,img,fonts）目录
   assetsDir: "assets",
   // 指定生成的 index.html 的输出路径 (相对于 outputDir)。也可以是一个绝对路径
@@ -54,17 +54,23 @@ module.exports = {
   },
   // webpack-dev-server 相关配置
   devServer: {
+    overlay: { // 让浏览器 overlay 同时显示警告和错误
+      warnings: true,
+      errors: true
+    },
     host: '0.0.0.0',
     port: 8888,
     https: false,
-    open: true,
-    hotOnly: false,
+    open: true, // 是否打开浏览器
+    hotOnly: false, // 热更新
     proxy: { // 设置代理
       '/api': {
         // 目标代理服务器地址
         target: 'http://localhost:8888',
-        // 允许跨域 
+        // 允许跨域，开启代理，在本地创建一个虚拟服务端 
         changeOrigin: true,
+        // 是否启用websockets
+        // ws: true, 
         pathRewrite: {
           '^/api': '/mock'
         }
