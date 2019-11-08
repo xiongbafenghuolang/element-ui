@@ -6,7 +6,7 @@ import { Message } from 'element-ui'
  *  环境的切换
  *  
  * */
-axios.defaults.publicPath = '/api';
+axios.defaults.baseURL = '/api';
 
 /**
  * 请求失败后的错误统一处理 

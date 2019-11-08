@@ -2,65 +2,22 @@
     "code": 200,
     "msg": "成功!",
     "data": {
-        "tech": [
-            {
-                "liveInfo": null,
-                "tcount": 1,
-                "picInfo": [
-                    {
-                        "ref": null,
-                        "width": null,
-                        "url": "http://cms-bucket.nosdn.127.net/2018/07/13/96e750810c7c47c7b95d6ee112cb9ab4.png",
-                        "height": null
-                    }
-                ],
-                "docid": "DMJU4F9E00097U7R",
-                "videoInfo": null,
-                "channel": "tech",
-                "link": "https://3g.163.com/all/article/DMJU4F9E00097U7R.html",
-                "source": "网易科技报道",
-                "title": "消息称滴滴考虑明年IPO 放慢融资计划",
-                "type": "doc",
-                "imgsrcFrom": null,
-                "imgsrc3gtype": 1,
-                "unlikeReason": "重复、旧闻/6,内容质量差/6",
-                "digest": "网易科技讯7月13日消息，据香港媒体报道，消息人士透露，滴滴",
-                "typeid": "",
-                "addata": null,
-                "tag": "",
-                "category": "科技",
-                "ptime": "2018-07-13 15:47:37"
-            }
-        ],
-        "auto": [
-            {
-                "liveInfo": null,
-                "tcount": 514,
-                "picInfo": [
-                    {
-                        "ref": null,
-                        "width": null,
-                        "url": "http://cms-bucket.nosdn.127.net/2018/07/13/bcb246ac4558454d979b593138207f39.jpeg",
-                        "height": null
-                    }
-                ],
-                "docid": "DMIP77HO0008856R",
-                "videoInfo": null,
-                "channel": "auto",
-                "link": "https://3g.163.com/all/article/DMIP77HO0008856R.html",
-                "source": "网易汽车",
-                "title": "尊贵到令人膨胀 这辆宾利慕尚情怀爆棚",
-                "type": "doc",
-                "imgsrcFrom": null,
-                "imgsrc3gtype": 1,
-                "unlikeReason": "重复、旧闻/6,内容质量差/6",
-                "digest": "宾利汽车将于2019年迎来品牌成立100周年，为庆祝这一即将",
-                "typeid": "",
-                "addata": null,
-                "tag": "",
-                "category": "汽车",
-                "ptime": "2018-07-13 05:02:30"
-            }
-        ]
+        "tableData": [{
+            "date": "2016-05-02",
+            "name": "王小虎",
+            "address": "上海市普陀区金沙江路 1518 弄"
+          }, {
+            "date": "2016-05-02",
+            "name": "马小云",
+            "address": "上海市普陀区金沙江路 1519 弄"
+          },{
+            "date": "2016-05-02",
+            "name": "朱李云",
+            "address": "上海市普陀区金沙江路 1520 弄"
+          }, {
+            "date": "2016-05-02",
+            "name": "张妈宝",
+            "address": "上海市普陀区金沙江路 1521 弄"
+          }]
     }
 }
