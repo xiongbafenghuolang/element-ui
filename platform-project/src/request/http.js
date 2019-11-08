@@ -6,7 +6,6 @@ import { Message } from 'element-ui'
  *  环境的切换
  *  
  * */
-window.console.log(process.env.NODE_ENV)
 // axios.defaults.baseURL = '/api';
 if (process.env.NODE_ENV == 'development') {    
     axios.defaults.baseURL = '/api';} 
