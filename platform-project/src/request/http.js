@@ -6,7 +6,16 @@ import { Message } from 'element-ui'
  *  环境的切换
  *  
  * */
-axios.defaults.baseURL = '/api';
+window.console.log(process.env.NODE_ENV)
+// axios.defaults.baseURL = '/api';
+if (process.env.NODE_ENV == 'development') {    
+    axios.defaults.baseURL = '/api';} 
+else if (process.env.NODE_ENV == 'debug') {    
+    axios.defaults.baseURL = 'https://www.ceshi.com';
+} 
+else if (process.env.NODE_ENV == 'production') {    
+    axios.defaults.baseURL = 'https://www.production.com';
+}
 
 /**
  * 请求失败后的错误统一处理 

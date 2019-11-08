@@ -20,7 +20,7 @@ export default {
     }
   },
   created() {
-    console.log(this.$go);
+    window.console.log(this.$go);
     this.$api.apiAddress()
       .then(res => {
          if(res.code == '200') {
