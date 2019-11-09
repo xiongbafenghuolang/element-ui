@@ -55,8 +55,8 @@ module.exports = {
   // webpack-dev-server 相关配置
   devServer: {
     overlay: { // 让浏览器 overlay 同时显示警告和错误
-      warnings: true,
-      errors: true
+      warnings: false,
+      errors: false
     },
     host: '0.0.0.0',
     port: 8888,
