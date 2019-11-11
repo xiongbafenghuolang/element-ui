@@ -2,18 +2,18 @@
 module.exports = {
   // 基本路径
   publicPath: process.env.NODE_ENV === 'production' ? '/public/' : './',
-  // 输出文件目录：在npm run build时，生成文件的目录名称 
+  // 输出文件目录：在npm run build时，生成文件的目录名称
   outputDir: process.env.outputDir, // 默认dist
   // 用于嵌套生成的静态资产（js,css,img,fonts）目录
   assetsDir: "assets",
   // 指定生成的 index.html 的输出路径 (相对于 outputDir)。也可以是一个绝对路径
   indexPath: 'index.html', // Default: 'index.html'
-  // 默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存，你可以通过将这个选项设为 false 来关闭文件名哈希。(false的时候就是让原来的文件名不改变) 
+  // 默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存，你可以通过将这个选项设为 false 来关闭文件名哈希。(false的时候就是让原来的文件名不改变)
   filenameHashing: true,
   // 构建多页时使用
   pages: undefined,
   // eslint-loader是否在保存的时候检查
-  lintOnSave: false,
+  lintOnSave: true,
   // 是否使用包含运行时编译器的Vue核心的构建
   runtimeCompiler: false,
   // 默认情况下 babel-loader 会忽略所有 node_modules 中的文件。如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来
@@ -45,8 +45,8 @@ module.exports = {
   css: {
     // 启用 CSS modules
     requireModuleExtension: true,
-    // 是否使用css分离插件
-    extract: true,
+    // 是否使用css分离插件 css热更新，将extract: true,注释掉 或者 改成false 就可以了
+    extract: false,
     // 开启 CSS source maps?
     sourceMap: false,
     // css预设器配置项
@@ -55,22 +55,22 @@ module.exports = {
   // webpack-dev-server 相关配置
   devServer: {
     overlay: { // 让浏览器 overlay 同时显示警告和错误
-      warnings: false,
-      errors: false
+      warnings: true,
+      errors: true
     },
     host: '0.0.0.0',
     port: 8888,
     https: false,
     open: true, // 是否打开浏览器
-    hotOnly: false, // 热更新
+    hot: true, // 热更新
     proxy: { // 设置代理
       '/api': {
         // 目标代理服务器地址
         target: 'http://localhost:8888',
-        // 允许跨域，开启代理，在本地创建一个虚拟服务端 
+        // 允许跨域，开启代理，在本地创建一个虚拟服务端
         changeOrigin: true,
         // 是否启用websockets
-        // ws: true, 
+        // ws: true,
         pathRewrite: {
           '^/api': '/mock'
         }
