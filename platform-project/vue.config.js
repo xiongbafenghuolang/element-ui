@@ -58,6 +58,12 @@ module.exports = {
       warnings: true,
       errors: true
     },
+    historyApiFallback: {
+			rewrites: [{
+				from: /.*/g,
+				to: '/public/index.html' //设置了无论是啥都匹配我自己设置的首页
+			}]
+		},
     host: '0.0.0.0',
     port: 8888,
     https: false,

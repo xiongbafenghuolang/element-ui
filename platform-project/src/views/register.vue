@@ -1,12 +1,17 @@
 <template>
   <div>
-    this is register page!
+   {{msg}}
+   <p> {{$route.params.username}}-{{$route.params.id}}--{{$route.params.sex}}</p>
   </div>
 </template>
 <script>
 export default {
-  name: 'register'
-
+  name: 'Register',
+  data() {
+    return {
+      msg: ' this is register page!'
+    }
+  },
 }
 </script>
 <style lang="scss">
