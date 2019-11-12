@@ -32,6 +32,10 @@ module.exports = {
   // 是一个函数，会接收一个基于 webpack-chain 的 ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改。
   // eslint-disable-next-line no-unused-vars
   chainWebpack: config => {
+      // 移除 prefetch 插件
+      config.plugins.delete('prefetch-index')
+      // 移除 preload 插件
+      config.plugins.delete('preload-index');
     /*config.module
       .rule('images')
       .use('url-loader')

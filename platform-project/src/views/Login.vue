@@ -35,6 +35,9 @@
 
 <script>
 export default {
+    props: {
+      id:String
+    },
     data(){
         return {
             logining: false,
@@ -48,6 +51,9 @@ export default {
             },
             checked: false
         }
+    },
+    mounted() {
+      window.console.log(this.id)
     },
     methods: {
         handleSubmit() {
