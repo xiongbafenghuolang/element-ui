@@ -1,4 +1,10 @@
 // vue.config.js
+const path = require('path')
+
+const resolve = (dir) => {
+  return path.join(__dirname, dir)
+}
+
 module.exports = {
   // 基本路径
   publicPath: process.env.NODE_ENV === 'production' ? '/public/' : './',
@@ -32,18 +38,30 @@ module.exports = {
   // 是一个函数，会接收一个基于 webpack-chain 的 ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改。
   // eslint-disable-next-line no-unused-vars
   chainWebpack: config => {
-      // 移除 prefetch 插件
-      config.plugins.delete('prefetch-index')
-      // 移除 preload 插件
-      config.plugins.delete('preload-index');
-    /*config.module
-      .rule('images')
-      .use('url-loader')
-        .loader('url-loader')
-        .tap(options => {
-          // 修改它的选项...
-          return options
-        })*/
+     // 移除 prefetch 插件
+     config.plugins.delete('prefetch')
+     // 移除 preload 插件
+     config.plugins.delete('preload');
+    // 添加新的svg-sprite-loader处理svgIcon
+    config.module
+      .rule('svgIcon')
+      .test(/\.svg$/)
+      .include.add(resolve('src/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .tap(options => {
+        options = {
+          symbolId: 'icon-[name]'
+        }
+        return options
+      })
+
+    // 原有的svg图像处理loader添加exclude
+    config.module
+      .rule('svg')
+      .exclude.add(resolve('src/icons'))
+      .end()
   },
   // css相关配置
   css: {
@@ -63,11 +81,11 @@ module.exports = {
       errors: true
     },
     historyApiFallback: {
-			rewrites: [{
-				from: /.*/g,
-				to: '/public/index.html' //设置了无论是啥都匹配我自己设置的首页
-			}]
-		},
+      rewrites: [{
+        from: /.*/g,
+        to: '/public/index.html' //设置了无论是啥都匹配我自己设置的首页
+      }]
+    },
     host: '0.0.0.0',
     port: 8888,
     https: false,
@@ -87,12 +105,12 @@ module.exports = {
       }
     },
     // eslint-disable-next-line no-unused-vars
-    before: app => {},
+    before: app => { },
   },
   // PWA 插件相关配置
   pwa: {},
   // 第三方插件配置
   pluginOptions: {
-  // ...
+    // ...
   }
 }

@@ -1,6 +1,9 @@
 // 正常的加载方式
-// import Login from '../views/Login.vue'
-// import Register from '../views/Register.vue'
+const Login = () => import('@/views/login/login')
+const Diagram = () => import('@/views/diagram/diagram')
+const Register = () => import('@/views/register/register')
+
+
 export default [
   {
     path: '/login',
@@ -9,7 +12,7 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: () => import('../views/Login.vue'), //异步加载，懒加载
+    component: Login, //异步加载，懒加载
     props: true,
     // props: {
     //   id: '0000'
@@ -17,9 +20,9 @@ export default [
 
   },
   {
-    path: '/Register',
+    path: '/register',
     name: 'register',
-    component: () => import('../views/Register.vue'), //异步加载，懒加载
+    component: Register, //异步加载，懒加载
     props: (route) => ({
       id: route.query.id
     }),
@@ -29,7 +32,9 @@ export default [
     },
     meta: { // 保存路由里边的一些信息，有利于处理SEO
       title: 'this is Register',
-      discription: 'this is Register page'
+      discription: 'this is Register page',
+      name: '注册页面',
+      icon: 'example'
     },
     // children: [
     //   {
@@ -37,5 +42,14 @@ export default [
     //     component: Login
     //   }
     // ]
-  }
+  },
+  {
+    path: '/diagram',
+    name: 'diagram',
+    component: Diagram, //异步加载，懒加载
+    props: {
+      id: '0000'
+    },
+
+  },
 ]

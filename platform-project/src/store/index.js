@@ -27,7 +27,7 @@ export default () => {
         },
         mutations: {
           updateText(state,text) {
-            window.console.log('a.state',state);
+            // window.console.log('a.state',state);
             state.text = text
           }
         },
@@ -39,7 +39,7 @@ export default () => {
         actions: {
           // eslint-disable-next-line no-unused-vars
           add({state, commit, rootState}) {
-            window.console.log(state)
+            // window.console.log(state)
             // commit('updateText',rootState.count); //当前区间找
             commit('updateCount',{num:56789},{root: true}); //全局找mutation
           }

@@ -1,26 +1,33 @@
 <template>
   <div id="app">
-    {{counter}}==3333555=={{fullName}}
-    <p>{{textA}}===={{textB}} -------{{textC}}---------{{textPlus}}</p>
+   <!-- {{prizeTime | formatDate(0)}} -->
+    <!-- {{counter}}==3333555=={{fullName}}
+    <p>{{textA}}===={{textB}} -------{{textC}}---------{{textPlus}}</p> -->
     <transition name="fade">
       <router-view></router-view>
     </transition>
-    <router-link :to="{name:'login',params:{username:'wuxiong',id:'555'}}">Login</router-link>
+    <!-- <router-link :to="{name:'login',params:{username:'wuxiong',id:'555'}}">Login</router-link>
     <router-link :to="{name:'register',params:{username:'wyatt',id:'111',sex:'男'}}">Register</router-link>
+    <router-link :to="{name:'diagram',params:{username:'wyatt',id:'0000'}}">Diagram</router-link> -->
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+
 export default {
   name: "app",
   components: {},
   data() {
-    return {};
+    return {
+      prizeTime: '1573783919699'
+    };
   },
-  created() {},
+  created() {
+    window.console.log('go', this.$go)
+  },
   mounted() {
-    window.console.log(this.$store.state.count);
+
     // let i  = 1
     // let timer = null;
     // clearInterval(timer);

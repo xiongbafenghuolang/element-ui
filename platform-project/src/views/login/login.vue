@@ -1,5 +1,13 @@
 <template>
     <div class="login-container">
+      <svg-icon icon-class="user" />
+      <i class="el-icon-edit"></i>编辑
+      <i class="el-icon-arrow-down el-icon--right"></i>向下箭头
+      <svg-icon icon-class="user" class-name="wechat-moments" /> 用户名
+      <svg-icon icon-class="weixin" />微博
+      <svg-icon icon-class="qq" class-name="qq" />微博
+      <svg-icon icon-class="weibo" class-name="wechat-moments" />微博
+      <svg-icon icon-class="wechat_moments" class-name="wechat-moments" />朋友圈
       {{$route.params.username}}-{{$route.params.id}}
         <el-form :model="ruleForm2" :rules="rules2"
          status-icon
@@ -99,5 +107,13 @@ export default {
 label.el-checkbox.rememberme {
     margin: 0px 0px 15px;
     text-align: left;
+}
+
+.wechat-moments {
+  color: red;
+}
+
+.qq {
+  color: #4185e6;
 }
 </style>
