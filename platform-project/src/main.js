@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import Vue from 'vue'
-import Vuex from 'vuex'
 import App from '@/App.vue'
 import go from 'gojs'
 import ElementUI from 'element-ui'
@@ -22,8 +21,6 @@ Vue.config.productionTip = false
 Vue.prototype.$go = go // 将go挂载到vue的原型上
 Vue.prototype.$api = api; // 将api挂载到vue的原型上
 
-
-Vue.use(Vuex)
 Vue.use(ElementUI);
 
 // 定义全局过滤器

@@ -10,6 +10,7 @@ export const constantRoutes = routes;
 
 const createRouter = () => new VueRouter({
   // mode: 'history', // 需要服务的支持
+  base: process.env.BASE_URL,
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })

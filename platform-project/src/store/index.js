@@ -1,4 +1,5 @@
 
+import Vue from 'vue'
 import Vuex from 'vuex'
 import defaultState  from './state/state'
 import mutations from './mutations/mutations'
@@ -8,6 +9,7 @@ import actions from './actions/actions'
 import app from './modules/app'
 import settings from './modules/settings'
 
+Vue.use(Vuex)
 // export default store
 export default () => {
   const store =  new Vuex.Store({
