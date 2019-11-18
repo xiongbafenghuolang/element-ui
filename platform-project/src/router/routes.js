@@ -3,6 +3,7 @@ const NotFound = () => import('@/views/errorPage/404')
 const Forbidden = () => import('@/views/errorPage/403')
 const Layout = () => import('@/layout/index')
 const Home = () => import('@/views/home/index')
+const Diagram = () => import('@/views/diagram/diagram')
 
 
 export default [
@@ -16,11 +17,11 @@ export default [
     component: NotFound,
     hidden: true
   },
-  // {
-  //   path: '/403',
-  //   component: Forbidden,
-  //   hidden: true
-  // },
+  {
+    path: '/403',
+    component: Forbidden,
+    hidden: true
+  },
   {
     path: '/',
     component: Layout,
@@ -33,14 +34,14 @@ export default [
     }]
   },
   {
-    path: '/403',
+    path: '/diagram',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: 'page403',
-        component: Forbidden,
-        meta: { title: 'page403', icon: 'form' }
+        name: 'diagram',
+        component: Diagram,
+        meta: { title: 'diagram', icon: 'form' }
       }
     ]
   },
@@ -104,4 +105,3 @@ export default [
   // 404 页面必须放置在末尾
   { path: '*', redirect: '/404', hidden: true }
 ]
-
