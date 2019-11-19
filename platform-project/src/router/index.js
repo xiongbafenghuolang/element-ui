@@ -1,17 +1,32 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import routes from './routes'
-
-
+import {
+  constantR,
+  asyncR
+} from './routes'
 
 Vue.use(VueRouter)
 
-export const constantRoutes = routes;
+/**
+ * constantRoutes
+ * 没有权限的基本页面
+ * 所有角色可以访问
+ */
+
+export const constantRoutes = constantR;
+
+/**
+ * asyncRoutes
+ * 需要根据用户角色动态加载的路由
+ */
+export const asyncRoutes = asyncR;
 
 const createRouter = () => new VueRouter({
   // mode: 'history', // 需要服务的支持
   base: process.env.BASE_URL,
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({
+    y: 0
+  }),
   routes: constantRoutes
 })
 

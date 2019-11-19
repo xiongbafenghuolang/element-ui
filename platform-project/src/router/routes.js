@@ -1,12 +1,17 @@
 const Login = () => import('@/views/login/login')
-const NotFound = () => import('@/views/errorPage/404')
-const Forbidden = () => import('@/views/errorPage/403')
+const NotFound = () => import('@/views/error-page/404')
+const Forbidden = () => import('@/views/error-page/401')
 const Layout = () => import('@/layout/index')
 const Home = () => import('@/views/home/index')
 const Diagram = () => import('@/views/diagram/diagram')
 
+/**
+ * constantR
+ * 没有权限的基本页面
+ * 所有角色可以访问
+ */
 
-export default [{
+const constantR = [{
     path: '/login',
     component: Login,
     hidden: true
@@ -17,7 +22,7 @@ export default [{
     hidden: true
   },
   {
-    path: '/403',
+    path: '/401',
     component: Forbidden,
     hidden: true
   },
@@ -32,6 +37,7 @@ export default [{
       meta: {
         title: '首页',
         icon: 'dashboard',
+        noCache: true,
         affix: true
       }
     }]
@@ -117,6 +123,26 @@ export default [{
       }
     ]
   },
+  {
+    path: '/error-page',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'ErrorPages',
+    alwaysShow: true,
+    meta: {
+      title: 'Error Pages',
+      icon: '404'
+    },
+    children: [{
+      path: '401',
+      component: NotFound,
+      name: 'Page401',
+      meta: {
+        title: '401',
+        noCache: true
+      }
+    }]
+  },
   // 404 页面必须放置在末尾
   {
     path: '*',
@@ -124,3 +150,16 @@ export default [{
     hidden: true
   }
 ]
+
+/**
+ * asyncR
+ * 需要根据用户角色动态加载的路由
+ */
+const asyncR = [
+
+]
+
+export {
+  constantR,
+  asyncR
+}

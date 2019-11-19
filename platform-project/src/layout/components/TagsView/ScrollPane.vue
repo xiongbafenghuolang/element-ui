@@ -76,13 +76,13 @@ export default {
   position: relative;
   overflow: hidden;
   width: 100%;
-  /deep/ {
-    .el-scrollbar__bar {
-      bottom: 0px;
-    }
-    .el-scrollbar__wrap {
-      height: 49px;
-    }
-  }
+  // /deep/ {
+  //   .el-scrollbar__bar {
+  //     bottom: 0px;
+  //   }
+  //   .el-scrollbar__wrap {
+  //     height: 49px;
+  //   }
+  // }
 }
 </style>

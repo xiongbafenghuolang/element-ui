@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    3123123123
+    <h2>欢迎使用流程节点通用开发管理平台</h2>
     <!-- <div class="dashboard-text">name: {{ name }}</div> -->
   </div>
 </template>
