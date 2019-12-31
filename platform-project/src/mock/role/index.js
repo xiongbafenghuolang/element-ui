@@ -45,7 +45,7 @@ export default [
   {
     url: '/routes',
     type: 'get',
-    response: _ => {
+    response: ()=> {
       return {
         code: 20000,
         data: routes
@@ -57,7 +57,7 @@ export default [
   {
     url: '/roles',
     type: 'get',
-    response: _ => {
+    response: () => {
       return {
         code: 20000,
         data: roles
