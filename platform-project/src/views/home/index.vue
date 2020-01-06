@@ -2,7 +2,7 @@
   <div class="dashboard-container">
     <h2>欢迎使用流程节点通用开发管理平台</h2>
     <!-- svg的运用示例(已封装组件) -->
-     <!-- <svg-icon icon-class="form" /> -->
+     <svg-icon icon-class="form" class-name="icon" />
     <!-- svg的运用示例(未封装) -->
      <!-- <svg>
        <use xlink:href="#icon-404"></use>
@@ -79,5 +79,9 @@ export default {
     font-size: 30px;
     line-height: 46px;
   }
+}
+.icon {
+  font-size: 30px;
+  color: yellowgreen;
 }
 </style>
