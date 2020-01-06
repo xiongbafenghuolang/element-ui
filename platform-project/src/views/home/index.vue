@@ -1,6 +1,12 @@
 <template>
   <div class="dashboard-container">
     <h2>欢迎使用流程节点通用开发管理平台</h2>
+    <!-- svg的运用示例(已封装组件) -->
+     <!-- <svg-icon icon-class="form" /> -->
+    <!-- svg的运用示例(未封装) -->
+     <!-- <svg>
+       <use xlink:href="#icon-404"></use>
+     </svg> -->
     <w-form :model="model" :rules="rules" ref="loginForm">
       <w-form-item label="用户名" prop="userName">
         <w-input v-model="model.userName" ></w-input>

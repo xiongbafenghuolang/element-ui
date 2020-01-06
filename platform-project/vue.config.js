@@ -1,10 +1,12 @@
 // vue.config.js
 const path = require('path')
-
+// 将传入的相对路径转换为绝对路径
 const resolve = (dir) => {
   return path.join(__dirname, dir)
 }
 
+const port = 9999
+const title = '项目实战'
 module.exports = {
   // 基本路径
   publicPath: process.env.NODE_ENV === 'production' ? '/public/' : './',
@@ -28,13 +30,13 @@ module.exports = {
   productionSourceMap: false,
   // 如果这个值是一个对象，则会通过 webpack-merge 合并到最终的配置中。如果这个值是一个函数，则会接收被解析的配置作为参数。该函数及可以修改配置并不返回任何东西，也可以返回一个被克隆或合并过的配置版本。
   // eslint-disable-next-line no-unused-vars
-  configureWebpack: config => {
-    if (process.env.NODE_ENV === 'production') {
-      // 为生产环境修改配置...
-    } else {
-      // 为开发环境修改配置...
-    }
-  },
+  // configureWebpack: config => {
+  //   if (process.env.NODE_ENV === 'production') {
+  //     // 为生产环境修改配置...
+  //   } else {
+  //     // 为开发环境修改配置...
+  //   }
+  // },
   // 是一个函数，会接收一个基于 webpack-chain 的 ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改。
   // eslint-disable-next-line no-unused-vars
   chainWebpack: config => {
@@ -45,14 +47,14 @@ module.exports = {
     // 添加新的svg-sprite-loader处理svgIcon
     config.module
       .rule('svgIcon')
-      .test(/\.svg$/)
-      .include.add(resolve('src/icons'))
-      .end()
-      .use('svg-sprite-loader')
-      .loader('svg-sprite-loader')
+      .test(/\.svg$/) // 设置test选项
+      .include.add(resolve('src/icons')) // 加入include选项
+      .end() // add完上下文进入数组，使用end进行回退
+      .use('svg-sprite-loader') // 添加loader选项
+      .loader('svg-sprite-loader') // 切换上下文到loader
       .tap(options => {
         options = {
-          symbolId: 'icon-[name]'
+          symbolId: 'icon-[name]' // 指定选项
         }
         return options
       })
@@ -87,14 +89,14 @@ module.exports = {
       }]
     },
     host: '0.0.0.0',
-    port: 8888,
+    port: port,
     https: false,
     open: true, // 是否打开浏览器
     hot: true, // 热更新
     proxy: { // 设置代理
       '/api': {
         // 目标代理服务器地址
-        target: 'http://localhost:8888',
+        target: `http://localhost:${port}`,
         // 允许跨域，开启代理，在本地创建一个虚拟服务端
         changeOrigin: true,
         // 是否启用websockets
@@ -106,6 +108,9 @@ module.exports = {
     },
     // eslint-disable-next-line no-unused-vars
     before: app => { },
+  },
+  configureWebpack: {
+    name:title
   },
   // PWA 插件相关配置
   pwa: {},
