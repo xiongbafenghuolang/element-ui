@@ -4,7 +4,7 @@ const path = require('path')
 const resolve = (dir) => {
   return path.join(__dirname, dir)
 }
-
+// const bodyParser = require("body-parser")
 const port = 9999
 const title = '项目实战'
 module.exports = {
@@ -107,7 +107,37 @@ module.exports = {
       }
     },
     // eslint-disable-next-line no-unused-vars
-    before: app => { },
+    // 配置mock数据
+    // app 是express的实例
+    before: app => {
+      window.console.log(app)
+      // 处理post参数
+      // app.use(bodyParser.json());
+      // app.post("/dev-api/user/login", (req, res) => {
+      //   const {
+      //     username
+      //   } = req.body;
+      //   if (username === "admin" || username === "jerry") {
+      //     res.json({
+      //       code: 1,
+      //       data: username
+      //     });
+      //   } else {
+      //     res.json({
+      //       code: 10204,
+      //       message: "⽤户名或密码错误"
+      //     });
+      //   }
+      // });
+      // app.get("/dev-api/user/info", (req, res) => {
+      //   const auth = req.headers["authorization"];
+      //   const roles = auth.split(' ')[1] === "admin" ? ["admin"] : ["editor"];
+      //   res.json({
+      //     code: 1,
+      //     data: roles
+      //   })
+      // })
+    },
   },
   configureWebpack: {
     name:title
