@@ -94,7 +94,7 @@ module.exports = {
     open: true, // 是否打开浏览器
     hot: true, // 热更新
     proxy: { // 设置代理
-      '/api': {
+      [process.env.VUE_APP_BASE_API]: {
         // 目标代理服务器地址
         target: `http://localhost:${port}`,
         // 允许跨域，开启代理，在本地创建一个虚拟服务端
@@ -102,15 +102,25 @@ module.exports = {
         // 是否启用websockets
         // ws: true,
         pathRewrite: {
-          '^/api': '/mock'
+          ["^" + process.env.VUE_APP_BASE_API]: ""
         }
-      }
+      },
+      // '/api': {
+      //   // 目标代理服务器地址
+      //   target: `http://localhost:${port}`,
+      //   // 允许跨域，开启代理，在本地创建一个虚拟服务端
+      //   changeOrigin: true,
+      //   // 是否启用websockets
+      //   // ws: true,
+      //   pathRewrite: {
+      //     '^/api': '/mock'
+      //   }
+      // }
     },
     // eslint-disable-next-line no-unused-vars
     // 配置mock数据
     // app 是express的实例
-    before: app => {
-      window.console.log(app)
+    // before: app => {
       // 处理post参数
       // app.use(bodyParser.json());
       // app.post("/dev-api/user/login", (req, res) => {
@@ -137,7 +147,7 @@ module.exports = {
       //     data: roles
       //   })
       // })
-    },
+    // },
   },
   configureWebpack: {
     name:title
